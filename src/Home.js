@@ -15,8 +15,7 @@ class Home extends Component {
             digitalRedirect:false
         }
     }
-    handleRedirect=(e)=>{
-      if(e ==='digital')
+    handleDigitalRedirect(){
       this.setState({
         digitalRedirect: true
       })
@@ -28,9 +27,8 @@ class Home extends Component {
         )
       }
       return (
-        <Router>
-        <body className="App-body">
-        <div className="tile" onClick={this.handleRedirect('digital')}>
+        <div>
+        <div className="tile" onClick={this.handleDigitalRedirect.bind(this)}>
           <div >
             <img className="digital-img" src={digital} />
           </div>
@@ -69,12 +67,8 @@ class Home extends Component {
             <p>Artificial</p> Intelligence
          </div>
         </div>
-        <Switch>
-          <Route path="/Digital" Component={DigitalSolution} />
-        </Switch>
         </div>
-        </body>
-      </Router>
+        </div>
     );
 }
 }
